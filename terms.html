@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use - CDL Practice Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0A0E1A;
+            --bg-secondary: #111827;
+            --bg-card: #1F2937;
+            --accent: #F59E0B;
+            --accent-dark: #D97706;
+            --text-primary: #FFFFFF;
+            --text-secondary: #9CA3AF;
+            --text-tertiary: #6B7280;
+            --border: #374151;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            background: rgba(10, 14, 26, 0.85);
+            border-bottom: 1px solid rgba(55, 65, 81, 0.5);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 16px 24px;
+        }
+        .nav-logo {
+            display: flex; align-items: center; gap: 10px;
+            text-decoration: none; color: var(--text-primary);
+        }
+        .nav-logo-icon {
+            width: 36px; height: 36px; border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px;
+        }
+        .nav-logo span { font-weight: 800; font-size: 18px; }
+        .nav-back {
+            color: var(--accent); text-decoration: none;
+            font-size: 14px; font-weight: 600;
+            display: flex; align-items: center; gap: 6px;
+            transition: opacity 0.2s;
+        }
+        .nav-back:hover { opacity: 0.8; }
+
+        .page-content {
+            max-width: 800px; margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+        .page-header { margin-bottom: 48px; }
+        .page-tag {
+            display: inline-block;
+            font-size: 12px; font-weight: 700; color: var(--accent);
+            background: rgba(245, 158, 11, 0.1);
+            padding: 6px 16px; border-radius: 100px;
+            margin-bottom: 16px; text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .page-header h1 { font-size: 40px; font-weight: 800; margin-bottom: 12px; }
+        .page-header .updated { font-size: 14px; color: var(--text-tertiary); }
+
+        .terms-section { margin-bottom: 40px; }
+        .terms-section h2 {
+            font-size: 22px; font-weight: 700; margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        .terms-section h3 {
+            font-size: 17px; font-weight: 600; margin: 20px 0 10px;
+            color: var(--accent);
+        }
+        .terms-section p {
+            font-size: 15px; color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+        .terms-section ul {
+            list-style: none; margin-bottom: 14px; padding-left: 0;
+        }
+        .terms-section ul li {
+            font-size: 15px; color: var(--text-secondary);
+            padding: 6px 0 6px 24px; position: relative;
+        }
+        .terms-section ul li::before {
+            content: '';
+            position: absolute; left: 8px; top: 14px;
+            width: 6px; height: 6px; border-radius: 50%;
+            background: var(--accent);
+        }
+        .highlight-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px; padding: 24px;
+            margin: 24px 0;
+        }
+        .highlight-box .label {
+            font-size: 13px; font-weight: 700; color: var(--accent);
+            text-transform: uppercase; letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .highlight-box p { margin-bottom: 0; }
+
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 32px 24px; text-align: center;
+        }
+        footer p { font-size: 13px; color: var(--text-tertiary); }
+        footer a { color: var(--accent); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">&#x1F69B;</div>
+            <span>CDL Practice Test</span>
+        </a>
+        <a href="index.html" class="nav-back">&larr; Back to Home</a>
+    </div>
+</nav>
+
+<div class="page-content">
+    <div class="page-header">
+        <div class="page-tag">Legal</div>
+        <h1>Terms of Use</h1>
+        <p class="updated">Last updated: March 5, 2026</p>
+    </div>
+
+    <div class="terms-section">
+        <h2>1. Acceptance of Terms</h2>
+        <p>By downloading, installing, or using CDL Practice Test ("the App"), you agree to be bound by these Terms of Use. If you do not agree to these terms, do not use the App.</p>
+        <p>This App is also subject to Apple's Standard End User License Agreement (EULA), available at <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" style="color:var(--accent);" target="_blank">apple.com/legal/internet-services/itunes/dev/stdeula</a>.</p>
+    </div>
+
+    <div class="terms-section">
+        <h2>2. Description of Service</h2>
+        <p>CDL Practice Test is an educational mobile application designed to help users prepare for the Commercial Driver's License (CDL) knowledge exam. The App provides:</p>
+        <ul>
+            <li>Practice questions aligned with FMCSA regulations</li>
+            <li>Multiple exam modes (practice, timed exam, review)</li>
+            <li>Spaced repetition study system</li>
+            <li>AI-powered explanations for incorrect answers</li>
+            <li>Progress tracking and study analytics</li>
+        </ul>
+    </div>
+
+    <div class="terms-section">
+        <h2>3. Educational Disclaimer</h2>
+        <div class="highlight-box">
+            <div class="label">Important</div>
+            <p>This App is a study aid only and does not guarantee passing the CDL exam. While our questions are aligned with FMCSA regulations, the actual CDL exam may contain different questions. Always refer to your state's DMV for official exam requirements and study materials.</p>
+        </div>
+        <p>The App does not replace professional CDL training, driving instruction, or official state-issued study guides. Users are responsible for ensuring they meet all requirements for obtaining a CDL in their jurisdiction.</p>
+    </div>
+
+    <div class="terms-section">
+        <h2>4. Subscriptions & Payments</h2>
+        <h3>Free Tier</h3>
+        <p>The App offers a free tier with limited daily questions. No payment is required to access the free tier.</p>
+
+        <h3>Pro Subscription</h3>
+        <p>Pro access can be purchased as:</p>
+        <ul>
+            <li><strong>Weekly</strong> — $7.99/week, auto-renewing</li>
+            <li><strong>Monthly</strong> — $19.99/month, auto-renewing</li>
+            <li><strong>Quarterly</strong> — $49.99/3 months, auto-renewing</li>
+            <li><strong>Lifetime</strong> — $99.99 one-time payment</li>
+        </ul>
+
+        <h3>Billing & Renewal</h3>
+        <p>All payments are processed through Apple's App Store. By purchasing a subscription:</p>
+        <ul>
+            <li>Payment is charged to your Apple ID account at confirmation of purchase</li>
+            <li>Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current period</li>
+            <li>Your account will be charged for renewal within 24 hours prior to the end of the current period</li>
+            <li>You can manage and cancel subscriptions in your Apple ID Account Settings</li>
+        </ul>
+
+        <h3>Refunds</h3>
+        <p>Refund requests must be directed to Apple. We do not process refunds directly. Visit <a href="https://reportaproblem.apple.com" style="color:var(--accent);" target="_blank">reportaproblem.apple.com</a> to request a refund from Apple.</p>
+    </div>
+
+    <div class="terms-section">
+        <h2>5. Intellectual Property</h2>
+        <p>All content in the App, including but not limited to questions, explanations, graphics, user interface design, and code, is owned by CDL Practice Test and is protected by copyright and intellectual property laws.</p>
+        <p>You may not:</p>
+        <ul>
+            <li>Reproduce, distribute, or publish any content from the App</li>
+            <li>Reverse engineer, decompile, or disassemble the App</li>
+            <li>Use the App's content to create a competing product</li>
+            <li>Remove any copyright or proprietary notices from the App</li>
+        </ul>
+    </div>
+
+    <div class="terms-section">
+        <h2>6. User Conduct</h2>
+        <p>You agree to use the App only for its intended purpose of CDL exam preparation. You may not:</p>
+        <ul>
+            <li>Attempt to gain unauthorized access to the App or its systems</li>
+            <li>Use the App in any way that violates applicable laws</li>
+            <li>Share your subscription access with other users</li>
+            <li>Use automated tools to extract content from the App</li>
+        </ul>
+    </div>
+
+    <div class="terms-section">
+        <h2>7. Limitation of Liability</h2>
+        <p>To the maximum extent permitted by law, CDL Practice Test shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the App.</p>
+        <p>This includes, but is not limited to:</p>
+        <ul>
+            <li>Failure to pass the CDL exam</li>
+            <li>Loss of study progress or data</li>
+            <li>Interruption of service</li>
+            <li>Errors or inaccuracies in content</li>
+        </ul>
+    </div>
+
+    <div class="terms-section">
+        <h2>8. Disclaimer of Warranties</h2>
+        <p>The App is provided "as is" and "as available" without warranties of any kind, either express or implied. We do not warrant that the App will be uninterrupted, error-free, or free of harmful components.</p>
+    </div>
+
+    <div class="terms-section">
+        <h2>9. Changes to Content</h2>
+        <p>We reserve the right to modify, update, or remove any content within the App at any time, including questions, explanations, and features. We regularly update our question bank to align with current FMCSA regulations.</p>
+    </div>
+
+    <div class="terms-section">
+        <h2>10. Termination</h2>
+        <p>We reserve the right to terminate or suspend your access to the App at any time, without notice, for conduct that we believe violates these Terms or is harmful to other users, us, or third parties.</p>
+    </div>
+
+    <div class="terms-section">
+        <h2>11. Changes to Terms</h2>
+        <p>We may update these Terms of Use from time to time. Continued use of the App after changes are posted constitutes acceptance of the modified terms. We encourage you to review these terms periodically.</p>
+    </div>
+
+    <div class="terms-section">
+        <h2>12. Governing Law</h2>
+        <p>These Terms shall be governed by and construed in accordance with the laws of the United States, without regard to conflict of law principles.</p>
+    </div>
+
+    <div class="terms-section">
+        <h2>13. Contact</h2>
+        <p>For questions about these Terms of Use, please contact us:</p>
+        <div class="highlight-box">
+            <p><strong>Email:</strong> <a href="mailto:support@cdlpracticetest.app" style="color:var(--accent);">support@cdlpracticetest.app</a></p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 CDL Practice Test. All rights reserved. | <a href="index.html">Home</a> | <a href="privacy.html">Privacy Policy</a> | <a href="support.html">Support</a></p>
+</footer>
+
+</body>
+</html>

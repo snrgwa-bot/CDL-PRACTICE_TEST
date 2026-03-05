@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - CDL Practice Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0A0E1A;
+            --bg-secondary: #111827;
+            --bg-card: #1F2937;
+            --accent: #F59E0B;
+            --accent-dark: #D97706;
+            --success: #10B981;
+            --text-primary: #FFFFFF;
+            --text-secondary: #9CA3AF;
+            --text-tertiary: #6B7280;
+            --border: #374151;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            background: rgba(10, 14, 26, 0.85);
+            border-bottom: 1px solid rgba(55, 65, 81, 0.5);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 16px 24px;
+        }
+        .nav-logo {
+            display: flex; align-items: center; gap: 10px;
+            text-decoration: none; color: var(--text-primary);
+        }
+        .nav-logo-icon {
+            width: 36px; height: 36px; border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px;
+        }
+        .nav-logo span { font-weight: 800; font-size: 18px; }
+        .nav-back {
+            color: var(--accent); text-decoration: none;
+            font-size: 14px; font-weight: 600;
+            display: flex; align-items: center; gap: 6px;
+            transition: opacity 0.2s;
+        }
+        .nav-back:hover { opacity: 0.8; }
+
+        .page-content {
+            max-width: 800px; margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+        .page-header { margin-bottom: 48px; text-align: center; }
+        .page-tag {
+            display: inline-block;
+            font-size: 12px; font-weight: 700; color: var(--accent);
+            background: rgba(245, 158, 11, 0.1);
+            padding: 6px 16px; border-radius: 100px;
+            margin-bottom: 16px; text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .page-header h1 { font-size: 40px; font-weight: 800; margin-bottom: 12px; }
+        .page-header p { font-size: 17px; color: var(--text-secondary); max-width: 500px; margin: 0 auto; }
+
+        /* Contact Card */
+        .contact-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px; padding: 36px;
+            text-align: center; margin-bottom: 40px;
+            transition: border-color 0.3s;
+        }
+        .contact-card:hover { border-color: var(--accent); }
+        .contact-icon {
+            width: 64px; height: 64px; border-radius: 18px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px; margin: 0 auto 20px;
+        }
+        .contact-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+        .contact-card p { font-size: 15px; color: var(--text-secondary); margin-bottom: 20px; }
+        .contact-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 14px 28px; border-radius: 12px;
+            font-weight: 700; font-size: 15px;
+            text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+            border: none; cursor: pointer;
+        }
+        .contact-btn:hover { transform: translateY(-2px); }
+        .contact-btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: var(--bg-primary);
+        }
+        .contact-btn-primary:hover { box-shadow: 0 8px 24px rgba(245, 158, 11, 0.3); }
+
+        /* FAQ */
+        .faq-section { margin-top: 60px; }
+        .faq-section h2 {
+            font-size: 28px; font-weight: 800; text-align: center; margin-bottom: 32px;
+        }
+        .faq-item { border-bottom: 1px solid var(--border); }
+        .faq-question {
+            width: 100%; padding: 20px 0;
+            background: none; border: none; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            color: var(--text-primary); font-size: 16px; font-weight: 600;
+            text-align: left; font-family: inherit;
+        }
+        .faq-question .arrow {
+            font-size: 20px; color: var(--text-tertiary);
+            transition: transform 0.3s;
+        }
+        .faq-question.active .arrow { transform: rotate(45deg); }
+        .faq-answer {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .faq-answer.open { max-height: 300px; }
+        .faq-answer p {
+            font-size: 15px; color: var(--text-secondary);
+            line-height: 1.7; padding-bottom: 20px;
+        }
+
+        /* Help Topics */
+        .help-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 20px; margin-top: 48px;
+        }
+        .help-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px; padding: 24px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .help-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+        }
+        .help-card-icon {
+            width: 44px; height: 44px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px; margin-bottom: 16px;
+        }
+        .help-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+        .help-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+        /* Response Time */
+        .response-banner {
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 14px; padding: 20px 24px;
+            display: flex; align-items: center; gap: 16px;
+            margin-top: 40px;
+        }
+        .response-banner .icon { font-size: 28px; }
+        .response-banner .text h4 { font-size: 15px; font-weight: 700; color: var(--success); }
+        .response-banner .text p { font-size: 13px; color: var(--text-secondary); margin: 0; }
+
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 32px 24px; text-align: center; margin-top: 60px;
+        }
+        footer p { font-size: 13px; color: var(--text-tertiary); }
+        footer a { color: var(--accent); text-decoration: none; }
+
+        @media (max-width: 640px) {
+            .help-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">&#x1F69B;</div>
+            <span>CDL Practice Test</span>
+        </a>
+        <a href="index.html" class="nav-back">&larr; Back to Home</a>
+    </div>
+</nav>
+
+<div class="page-content">
+    <div class="page-header">
+        <div class="page-tag">Support</div>
+        <h1>How Can We Help?</h1>
+        <p>We're here to make sure you have the best experience preparing for your CDL exam.</p>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-card">
+        <div class="contact-icon" style="background:rgba(245,158,11,0.12);">&#x2709;&#xFE0F;</div>
+        <h3>Email Support</h3>
+        <p>Have a question, found a bug, or need help with your subscription? Reach out and we'll get back to you as soon as possible.</p>
+        <a href="mailto:support@cdlpracticetest.app" class="contact-btn contact-btn-primary">
+            Contact Support
+        </a>
+    </div>
+
+    <div class="response-banner">
+        <div class="icon">&#x26A1;</div>
+        <div class="text">
+            <h4>Quick Response Time</h4>
+            <p>We typically respond within 24 hours on business days.</p>
+        </div>
+    </div>
+
+    <!-- Help Topics -->
+    <div class="help-grid">
+        <div class="help-card">
+            <div class="help-card-icon" style="background:rgba(245,158,11,0.12);">&#x1F4B3;</div>
+            <h3>Subscription & Billing</h3>
+            <p>Manage your subscription, restore purchases, or request a refund through your Apple ID settings.</p>
+        </div>
+        <div class="help-card">
+            <div class="help-card-icon" style="background:rgba(16,185,129,0.12);">&#x1F4F2;</div>
+            <h3>App Issues</h3>
+            <p>If the app crashes or something doesn't work right, try updating to the latest version or reinstalling.</p>
+        </div>
+        <div class="help-card">
+            <div class="help-card-icon" style="background:rgba(59,130,246,0.12);">&#x1F4DA;</div>
+            <h3>Study Content</h3>
+            <p>Questions are aligned with 2026 FMCSA regulations. If you spot an error, let us know and we'll fix it.</p>
+        </div>
+        <div class="help-card">
+            <div class="help-card-icon" style="background:rgba(139,92,246,0.12);">&#x1F504;</div>
+            <h3>Restore Purchases</h3>
+            <p>Tap "Restore Purchases" in the app's paywall screen. Make sure you're signed into the same Apple ID.</p>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section">
+        <h2>Common Questions</h2>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                How do I restore my subscription on a new device?
+                <span class="arrow">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Open the app, go to the paywall screen, and tap "Restore Purchases." Make sure you're signed into the same Apple ID that was used for the original purchase. Your Pro access will be restored automatically.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                How do I cancel my subscription?
+                <span class="arrow">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Go to your iPhone Settings > tap your name at the top > Subscriptions > CDL Practice Test > Cancel Subscription. Your access will continue until the end of your current billing period.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                Will I lose my progress if I delete the app?
+                <span class="arrow">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Yes, your study progress, streaks, and scores are stored locally on your device. If you delete the app, this data will be removed. However, your Pro subscription status will be restored via Apple when you reinstall.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                I found a wrong answer in a question. How can I report it?
+                <span class="arrow">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Please email us at support@cdlpracticetest.app with the question text and what you believe the correct answer should be. We review all reports and update our question bank regularly.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                Does the app work without internet?
+                <span class="arrow">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Yes! All questions, explanations, and study features work completely offline. You don't need any internet connection to study. An internet connection is only needed for purchasing or restoring subscriptions.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                How do I request a refund?
+                <span class="arrow">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Refunds are handled by Apple. Visit reportaproblem.apple.com, sign in with your Apple ID, find the purchase, and request a refund. Apple typically processes refund requests within 48 hours.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 CDL Practice Test. All rights reserved. | <a href="index.html">Home</a> | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Use</a></p>
+</footer>
+
+<script>
+function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
+    if (!isOpen) {
+        answer.classList.add('open');
+        btn.classList.add('active');
+    }
+}
+</script>
+
+</body>
+</html>
