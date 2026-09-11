@@ -494,7 +494,44 @@
             .price-card.featured:hover { transform: translateY(-4px); }
             .footer-inner { flex-direction: column; }
         }
-    </style>
+    
+        /* ===== Large displays =====
+           The shell was pinned between 700px and 1200px, which on a 2560px
+           monitor reads as a narrow column adrift in empty space. This
+           stylesheet sizes type in px, so scaling the root font would do
+           nothing — instead the rails widen and the px-sized type, cards and
+           phone mockup step up with them, so everything grows together rather
+           than just the gaps. Copy blocks keep their own measure so line length
+           stays readable however wide the window gets. */
+        @media (min-width: 1500px) {
+            .nav-inner, .footer-inner, .footer-bottom { max-width: 1440px; }
+            .stats-inner { max-width: 1240px; }
+            .features-grid, .testimonials-grid { max-width: 1360px; }
+            .pricing-grid { max-width: 1140px; }
+            .faq-list { max-width: 62ch; }
+            .hero-sub { max-width: 62ch; font-size: clamp(18px, 1.4vw, 23px); }
+            .section-header p, .cta-section p { max-width: 58ch; font-size: 19px; }
+            .stat-item .stat-num { font-size: 44px; }
+            .stat-item .stat-label { font-size: 16px; }
+            .feature-card { padding: 38px; }
+            .hero-phone { margin-bottom: 87px; }
+            .phone-frame { transform: scale(1.15); transform-origin: top center; }
+        }
+        @media (min-width: 2000px) {
+            .nav-inner, .footer-inner, .footer-bottom { max-width: 1720px; }
+            .stats-inner { max-width: 1460px; }
+            .features-grid, .testimonials-grid { max-width: 1600px; }
+            .pricing-grid { max-width: 1320px; }
+            .faq-list { max-width: 64ch; }
+            .hero-sub { max-width: 64ch; }
+            .section-header p, .cta-section p { font-size: 21px; }
+            .stat-item .stat-num { font-size: 52px; }
+            .stat-item .stat-label { font-size: 17px; }
+            .feature-card { padding: 44px; }
+            .hero-phone { margin-bottom: 174px; }
+            .phone-frame { transform: scale(1.3); transform-origin: top center; }
+        }
+</style>
 </head>
 <body>
 

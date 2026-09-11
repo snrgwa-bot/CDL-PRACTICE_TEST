@@ -120,7 +120,24 @@
         }
         footer p { font-size: 13px; color: var(--text-tertiary); }
         footer a { color: var(--accent); text-decoration: none; }
-    </style>
+    
+        /* ===== Large displays =====
+           Widen the nav/footer rails past their 1200px pin so the chrome tracks
+           the display. The prose column deliberately keeps a narrow measure —
+           long legal text run to the full window width is worse than the
+           original problem — but its type steps up so it does not look tiny in
+           the wider shell. */
+        @media (min-width: 1500px) {
+            .nav-inner, .footer-inner, .footer-bottom { max-width: 1440px; }
+            .page-content { max-width: 68ch; }
+            .page-content p, .page-content li { font-size: 17px; }
+        }
+        @media (min-width: 2000px) {
+            .nav-inner, .footer-inner, .footer-bottom { max-width: 1720px; }
+            .page-content { max-width: 70ch; }
+            .page-content p, .page-content li { font-size: 18.5px; }
+        }
+</style>
 </head>
 <body>
 
